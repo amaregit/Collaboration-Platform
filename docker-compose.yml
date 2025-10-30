@@ -23,6 +23,10 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://postgres:test-access-secret-key@postgres:5432/collaboration_db
+      - JWT_ACCESS_SECRET=test-access-secret-key
+      - JWT_REFRESH_SECRET=test-refresh-secret-key
+      - JWT_ACCESS_EXPIRES_IN=15m
+      - JWT_REFRESH_EXPIRES_IN=7d
     depends_on:
       postgres:
         condition: service_healthy
