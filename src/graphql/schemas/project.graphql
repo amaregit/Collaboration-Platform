@@ -1,0 +1,34 @@
+type Project {
+  id: ID!
+  name: String!
+  description: String
+  workspaceId: ID!
+  createdAt: String!
+  updatedAt: String!
+  workspace: Workspace!
+  members: [ProjectMembership!]!
+}
+
+type ProjectMembership {
+  id: ID!
+  projectId: ID!
+  userId: ID!
+  role: String!
+  joinedAt: String!
+  user: User!
+  project: Project!
+}
+
+type Query {
+  getProject(id: ID!): Project
+  getProjects(workspaceId: ID!): [Project!]!
+}
+
+type Mutation {
+  createProject(workspaceId: ID!, name: String!, description: String): Project!
+  updateProject(id: ID!, name: String, description: String): Project!
+  deleteProject(id: ID!): String!
+  addProjectMember(projectId: ID!, userId: ID!, role: String): ProjectMembership!
+  updateProjectMemberRole(projectId: ID!, userId: ID!, role: String!): ProjectMembership!
+  removeProjectMember(projectId: ID!, userId: ID!): String!
+}

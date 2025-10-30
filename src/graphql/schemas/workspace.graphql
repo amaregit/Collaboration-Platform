@@ -1,0 +1,33 @@
+type Workspace {
+  id: ID!
+  name: String!
+  ownerId: ID!
+  createdAt: String!
+  updatedAt: String!
+  members: [WorkspaceMember!]!
+  owner: User!
+}
+
+type WorkspaceMember {
+  id: ID!
+  workspaceId: ID!
+  userId: ID!
+  role: String!
+  joinedAt: String!
+  user: User!
+}
+
+type Query {
+  getWorkspace(id: ID!): Workspace
+  getWorkspaces: [Workspace!]!
+  getAllWorkspaces: [Workspace!]!
+}
+
+type Mutation {
+  createWorkspace(name: String!): Workspace!
+  updateWorkspace(id: ID!, name: String!): Workspace!
+  deleteWorkspace(id: ID!): String!
+  addWorkspaceMember(workspaceId: ID!, userId: ID!, role: String): WorkspaceMember!
+  updateWorkspaceMemberRole(workspaceId: ID!, userId: ID!, role: String!): WorkspaceMember!
+  removeWorkspaceMember(workspaceId: ID!, userId: ID!): String!
+}

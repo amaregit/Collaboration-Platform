@@ -1,0 +1,21 @@
+type Notification {
+  id: ID!
+  title: String!
+  body: String!
+  recipientId: ID!
+  status: String!
+  relatedEntityId: ID
+  createdAt: String!
+  recipient: User!
+}
+
+type Query {
+  getNotifications: [Notification!]!
+  getNotification(id: ID!): Notification
+  getUnreadNotificationCount: Int!
+}
+
+type Mutation {
+  markNotificationAsSeen(id: ID!): Notification
+  markAllNotificationsAsSeen: Int!
+}

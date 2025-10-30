@@ -1,0 +1,18 @@
+type Query {
+  me: User
+}
+
+type Mutation {
+  register(email: String!, password: String!, firstName: String!, lastName: String!): AuthPayload!
+  forgotPassword(email: String!): String!
+  updatePassword(currentPassword: String!, newPassword: String!): String!
+  userBan(userId: ID!): String!
+  userUnban(userId: ID!): String!
+  adminResetPassword(userId: ID!): AdminResetPasswordResponse!
+}
+
+type AdminResetPasswordResponse {
+  success: Boolean!
+  message: String!
+  tempPassword: String!
+}
