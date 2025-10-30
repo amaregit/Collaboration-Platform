@@ -40,13 +40,13 @@ Workspace (OWNER/MEMBER/VIEWER)
 
 - **Bun**: `curl -fsSL https://bun.sh/install | bash`
 - **Docker & Docker Compose**: For PostgreSQL database
-- **Node.js 18+**: For compatibility
+- **Node.js 20+**: For compatibility
 
 ## 🚀 Quick Start
 
 ### 1. Clone and Install
 ```bash
-git clone <repository-url>
+git clone <https://github.com/amaregit/Collaboration-Platform.git>
 cd collaboration-platform
 bun install
 ```
